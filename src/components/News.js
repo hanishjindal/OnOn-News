@@ -67,7 +67,7 @@ export class News extends Component {
 
   render() {
     return (
-      <div className="container my-3">
+      <div className="my-3">
         <h1 className="text-center my-4">
           OnOn - Top{" "}
           {this.props.category.slice(0, 1).toUpperCase() +
@@ -82,7 +82,7 @@ export class News extends Component {
           loader={<Spinner className="my-5" />}
         >
           <div className="container">
-            <div className="row my-3">
+            <div className="row my-2">
               {this.state.articles.map((element) => {
                 return (
                   <div className="col-md-3" key={element.url}>
@@ -107,6 +107,9 @@ export class News extends Component {
             </div>
           </div>
         </InfiniteScroll>
+        {this.state.articles.length !== this.state.totalResults && (
+          <h5 className="text-center">---End of News---</h5>
+        )}
       </div>
     );
   }
